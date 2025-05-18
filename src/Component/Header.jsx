@@ -62,13 +62,15 @@ function Header() {
                     ))}
                 </div>
                 <div className='md:hidden' onClick={() => setToggle(!toggle)}>
-                    <HeaderItem name={''} icon={HiDotsVertical}/>
-                    {toggle? <div className='absolute mt-3 bg-[#181818] p-3 rounded 
-                        border-1px border-[#181818] px-4 flex flex-col gap-3'>
-                        {menuItems.map((item, index) => index>2&& (
-                            <HeaderItem key={index} name={item.name} icon={item.icon}/>
-                        ))}                
-                    </div>:null}
+                    <HeaderItem name={''} icon={HiDotsVertical} />
+                    {toggle && (
+                        <div className='absolute mt-3 bg-[#181818] p-3 rounded 
+                            border border-[#181818] px-4 flex flex-col gap-3 z-10'>
+                            {menuItems.map((item, index) => index > 2 && (
+                                <HeaderItem key={index} name={item.name} icon={item.icon} />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
             <img src={user} className='w-[45px] rounded-full cursor-pointer' alt="" />
